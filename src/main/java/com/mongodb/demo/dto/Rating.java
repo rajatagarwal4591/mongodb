@@ -9,12 +9,6 @@ public class Rating {
     private int rating;
     @Field(name = "noOfReviews")
     private int no_of_reviews;
-
-    public Rating(int rating, int no_of_reviews) {
-        this.rating = rating;
-        this.no_of_reviews = no_of_reviews;
-    }
-
     public int getNo_of_reviews() {
         return no_of_reviews;
     }

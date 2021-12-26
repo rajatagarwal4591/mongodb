@@ -9,11 +9,6 @@ public class Department {
     @Field(name = "noOfStudents")
     private int no_of_students_in_dept;
 
-    public Department(String deptName, int no_of_students_in_dept) {
-        this.deptName = deptName;
-        this.no_of_students_in_dept= no_of_students_in_dept;
-    }
-
     public String getDeptName() {
         return deptName;
     }

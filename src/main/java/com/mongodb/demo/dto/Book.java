@@ -1,18 +1,23 @@
 package com.mongodb.demo.dto;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.annotation.Transient;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.lang.NonNull;
 
 @Document(collection = "book")
 public class Book {
 
     @Id
-    private int id;
+    private String id;
+    @NonNull
     private String name;
     private String ssn;
     private String author;
     private double price;
 
+    @Transient
+    private String profit;
     private Rating rating;
     private Department department;
 
@@ -22,6 +27,14 @@ public class Book {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getProfit() {
+        return profit;
+    }
+
+    public void setProfit(String profit) {
+        this.profit = profit;
     }
 
     public String getSsn() {
@@ -53,7 +66,7 @@ public class Book {
     }
 
     public void setRating(Rating rating) {
-        this.rating = new Rating(rating.getRating(),rating.getNo_of_reviews());
+        this.rating = rating;
     }
 
     public Department getDepartment() {
@@ -61,15 +74,14 @@ public class Book {
     }
 
     public void setDepartment(Department department) {
-        this.department =
-                new Department(department.getDeptName(),department.getNo_of_students_in_dept());
+        this.department = department;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
